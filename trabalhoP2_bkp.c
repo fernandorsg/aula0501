@@ -53,16 +53,27 @@ main(){
 }
 
 void importar(){
-	arquivo = fopen("dados.txt", "r");
+	int opcao = 0;
+	printf("===== Importação de Arquivo\n");
+	printf("\t1 - Importar\n");
+	printf("\t0 - Retornar\n");
+	printf("======================\n");
+	printf("Escolha uma opção: ");
+	scanf("%d", &opcao);
 	
-	if (arquivo == NULL) {
-		printf("Erro ao importar o arquivo.");
-	}
-	else {
-		while ((registro = fgetc(arquivo)) != EOF) {
-			putchar(registro);
-		}
-		printf("Arquivo %s importado com exito!", arquivo);
+	switch(opcao){
+		case 1:
+			arquivo = fopen("dados.txt", "r");
+	
+			if (arquivo == NULL) {
+				printf("Erro ao importar o arquivo.");
+			}
+			else {
+				while ((registro = fgetc(arquivo)) != EOF) {
+					putchar(registro);
+				}
+			printf("Arquivo %s importado com exito!", arquivo);
+			}
 	}
 	//fclose(arquivo);
 	return 0;
