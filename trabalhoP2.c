@@ -3,104 +3,154 @@
 #include <stdlib.h>
 #include <locale.h>
 
-struct typedef {
+typedef struct {
 	char nome[30];
 	int matricula;
 	float salario;
 } Pessoal;
 
+Pessoal pessoa;
 char registro;
 FILE *arquivo;
 
-void alterar();
-void excluir();
+void localizar();
 void exibirMenu();
 void importar();
-void incluir();
-void localizar();
-void limparTela();
+
+/*
+void alterar(Pessoal *);
+void excluir(Pessoal *);
+void incluir(Pessoal *);
+*/
 
 main(){
 	localizar();
 	
-	int opcaoMenu = 0;
+	int opcaoMenu;
 	
 	do {
 		exibirMenu();
 		scanf("%d", &opcaoMenu);
 		
-		switch (opcao){
+		switch(opcaoMenu){
 			case 1:
-				limparTela();
 				importar();
 				break;
 			case 2:
-				limparTela();
-				incluir();
+				//incluir();
 				break;
 			case 3:
-				limparTela();
-				alterar();
+				//alterar();
 				break;
 			case 4:
-				limparTela();
-				excluir();
+				//excluir();
 				break;
-			default:
+			case 0:
 				close();
+			default:
+				printf("Opção inválida, digite novamente: ");
+				scanf("%d", &opcaoMenu);
 		}
-	} while (opcao != 0);
-}
-
-void importar(){
-	arquivo = fopen("dados.txt", "r");
-	
-	if (arquivo == NULL) {
-		printf("Erro ao importar o arquivo.");
-	}
-	else {
-		while ((registro = fgetc(arquivo)) != EOF) {
-			putchar(registro);
-		}
-		printf("Arquivo %s importado com exito!", arquivo);
-	}
-	//fclose(arquivo);
-	return 0;
-}
-
-void incluir(){
-	printf("===== Incluir:\n");
-	arquivo = fopen("dados.txt","a");
-	
-	if (arquivo == NULL) {
-		printf("Erro ao importar o arquivo.");
-	}
-	else {
-		printf("Digite o nome: ");
-		fgets(Pessoa.nome);
-		printf("Digite a matrícula: ");
-		fgets(Pessoa.matricula);
-		printf("Digite o salário: ");
-		fgets(Pessoa.salario);
-	}
+	} while (opcaoMenu != 0);
 }
 
 void exibirMenu(){
 	localizar();
-	printf("===== Registro Pessoas\n");
+	printf("===== Registro Pessoas =====\n\n");
 	printf("\t1 - Importar Arquivo\n");
 	printf("\t2 - Incluir Pessoa\n");
 	printf("\t3 - Alterar Pessoa\n");
 	printf("\t4 - Excluir Pessoa\n");
-	printf("\t0 - SAIR\n");
-	printf("======================\n");
+	printf("\t0 - SAIR\n\n");
+	printf("============================\n");
 	printf("Escolha uma opção: ");
 }
 
 void localizar(){
 	setlocale(LC_ALL, "Portuguese");
 }
+/*
+void imprimir(){
+	arqFuncionario = fopen("func_aleatorio.dat", "r");
+	
+	printf("%10s %-20s %-20s %-20s \n", "Matricula","Nome","Departamento","Cargo");
+	fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
+	while(!feof(arqFuncionario)){
+		printf("%10d %-20s %-20s %-20s \n", funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
+		fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
+	}
+	fclose(arqFuncionario);
+}
 
-void limparTela(){
-	system("clear || cls");
+}*/
+
+void importar(){
+	localizar();
+	arquivo = fopen("dados.txt", "r");
+	printf("============================\n");
+	printf("%-30s %-6s %8s \n", "Nome", "Código", "Salário");
+	fscanf(arquivo, "%s%d%f ", pessoa.nome, &pessoa.matricula, &pessoa.salario);
+	while(!feof(arquivo)){
+		printf("%-30s %-6d %8.2f \n", pessoa.nome, pessoa.matricula, pessoa.salario);
+		fscanf(arquivo, "%s%d%f ", pessoa.nome, &pessoa.matricula, &pessoa.salario);
+	}
+	fclose(arquivo);
+}
+
+void importar(){
+	Pessoal pessoa;
+	arquivo = fopen("dados.txt", "r");
+	
+	if (arquivo == NULL) {
+		printf("Erro ao importar o arquivo.");
+	} else {
+		printf("==== Arquivo: %s importado com exito.\n", arquivo);
+		printf("%30s %5s %s\n", Nome, Matricula, Salario);
+		while (!feof(arquivo)) {
+			fscanf(arquivo, "%s %d %f", pessoa.nome, &pessoa.matricula, &pessoa.salario);
+			printf("%30s %5d %.2f\n", pessoa.nome, pessoa.matricula, pessoa.salario);
+		}
+	}
+}
+
+void alterar(Pessoal *){
+	Pessoal pessoa;
+	
+	arquivo = fopen("dados.txt","r");
+	
+	printf("===== Alterar Dados do Usuário\n");
+	printf("\tDigite a matrícula: \n");
+	scanf("%d", &pessoa.matricula);
+	
+	fclose(arquivo);
+}
+
+void excluir(Pessoal *) {
+	Pessoal pessoa;
+	
+	arquivo = fopen("dados.txt","w");
+	
+	printf("===== Excluir Usuário\n");
+	printf("Digite a matrícula: \n");
+	scanf("%d", &pessoa.matricula);
+	
+	fclose(arquivo);
+}
+
+void incluir(){
+	Pessoal pessoa;
+	
+	printf("===== Incluir:\n");
+	arquivo = fopen("dados.txt","a+");
+	
+	if (arquivo == NULL) {
+		printf("Erro ao abrir o arquivo.");
+	} else {
+		printf("Digite o nome: ");
+		fgets(pessoa.nome);
+		printf("Digite a matrícula: ");
+		fgets(pessoa.matricula);
+		printf("Digite o salário: ");
+		fgets(pessoa.salario);
+	}
 }
