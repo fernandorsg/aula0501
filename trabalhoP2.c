@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <locale.h>
+#define ARQUIVO "dados.txt"
 
 typedef struct {
 	char nome[30];
@@ -13,24 +14,20 @@ Pessoal pessoa;
 char registro;
 FILE *arquivo;
 
-void localizar();
 void exibirMenu();
 void importar();
-
-/*
 void alterar(Pessoal *);
 void excluir(Pessoal *);
 void incluir(Pessoal *);
-*/
 
 main(){
-	localizar();
+	setlocale(LC_ALL, "Portuguese");
 	
 	int opcaoMenu;
 	
 	do {
 		exibirMenu();
-		scanf("%d", &opcaoMenu);
+		scanf("%i", &opcaoMenu);
 		
 		switch(opcaoMenu){
 			case 1:
@@ -40,7 +37,7 @@ main(){
 				//incluir();
 				break;
 			case 3:
-				//alterar();
+				alterar(&pessoa.nome, &pessoa.matricula, &pessoa.salario);
 				break;
 			case 4:
 				//excluir();
@@ -49,13 +46,12 @@ main(){
 				close();
 			default:
 				printf("Opção inválida, digite novamente: ");
-				scanf("%d", &opcaoMenu);
+				scanf("%i", &opcaoMenu);
 		}
 	} while (opcaoMenu != 0);
 }
 
 void exibirMenu(){
-	localizar();
 	printf("===== Registro Pessoas =====\n\n");
 	printf("\t1 - Importar Arquivo\n");
 	printf("\t2 - Incluir Pessoa\n");
@@ -66,69 +62,30 @@ void exibirMenu(){
 	printf("Escolha uma opção: ");
 }
 
-void localizar(){
-	setlocale(LC_ALL, "Portuguese");
-}
-/*
-void imprimir(){
-	arqFuncionario = fopen("func_aleatorio.dat", "r");
-	
-	printf("%10s %-20s %-20s %-20s \n", "Matricula","Nome","Departamento","Cargo");
-	fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
-	while(!feof(arqFuncionario)){
-		printf("%10d %-20s %-20s %-20s \n", funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
-		fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);
-	}
-	fclose(arqFuncionario);
-}
-
-}*/
-
 void importar(){
-	localizar();
-	arquivo = fopen("dados.txt", "r");
+	int cont = 1;
+	arquivo = fopen(ARQUIVO, "r");
 	printf("============================\n");
 	printf("%-30s %-6s %8s \n", "Nome", "Código", "Salário");
-	fscanf(arquivo, "%s%d%f ", pessoa.nome, &pessoa.matricula, &pessoa.salario);
 	while(!feof(arquivo)){
-		printf("%-30s %-6d %8.2f \n", pessoa.nome, pessoa.matricula, pessoa.salario);
 		fscanf(arquivo, "%s%d%f ", pessoa.nome, &pessoa.matricula, &pessoa.salario);
+		printf("%-30s %-6d %8.2f \n", pessoa.nome, pessoa.matricula, pessoa.salario);
 	}
 	fclose(arquivo);
 }
 
-void importar(){
-	Pessoal pessoa;
-	arquivo = fopen("dados.txt", "r");
+void alterar(Pessoal *pNome, Pessoal *pSalario){
+	int matriculaRecuperada;
+	importar();
 	
-	if (arquivo == NULL) {
-		printf("Erro ao importar o arquivo.");
-	} else {
-		printf("==== Arquivo: %s importado com exito.\n", arquivo);
-		printf("%30s %5s %s\n", Nome, Matricula, Salario);
-		while (!feof(arquivo)) {
-			fscanf(arquivo, "%s %d %f", pessoa.nome, &pessoa.matricula, &pessoa.salario);
-			printf("%30s %5d %.2f\n", pessoa.nome, pessoa.matricula, pessoa.salario);
-		}
-	}
-}
-
-void alterar(Pessoal *){
-	Pessoal pessoa;
-	
-	arquivo = fopen("dados.txt","r");
-	
-	printf("===== Alterar Dados do Usuário\n");
-	printf("\tDigite a matrícula: \n");
-	scanf("%d", &pessoa.matricula);
-	
-	fclose(arquivo);
+	printf("Escolha o funcionário a alterar\n");
+	printf("Digite a matricula: ");
+	scanf("%i", &matriculaRecuperada);
 }
 
 void excluir(Pessoal *) {
-	Pessoal pessoa;
 	
-	arquivo = fopen("dados.txt","w");
+	arquivo = fopen(ARQUIVO,"w");
 	
 	printf("===== Excluir Usuário\n");
 	printf("Digite a matrícula: \n");
@@ -138,10 +95,9 @@ void excluir(Pessoal *) {
 }
 
 void incluir(){
-	Pessoal pessoa;
 	
 	printf("===== Incluir:\n");
-	arquivo = fopen("dados.txt","a+");
+	arquivo = fopen(ARQUIVO,"a+");
 	
 	if (arquivo == NULL) {
 		printf("Erro ao abrir o arquivo.");
@@ -153,4 +109,29 @@ void incluir(){
 		printf("Digite o salário: ");
 		fgets(pessoa.salario);
 	}
+}
+
+#include <stdio.h>
+typedef struct{
+    char nome[30];
+    int matricula;
+    float salario;
+} Pessoal;
+
+Pessoal pessoa;
+
+void alteraEstrutura(Pessoa *);
+main() {
+    pessoa.nome= "Fernando";
+    pessoa.matricula= 12345;
+    pessoa.salario= 1234.56;
+    printf("%s %d %.2f \n", pessoa.nome, pessoa.matricula, pessoa.salario);
+    Pessoa *pPessoa= &pessoa;
+    alteraEstrutura(pPessoa);
+    printf("%s %d %.2f \n", pPessoa->nome, pPessoa->matricula, pPessoa->salario);
+}
+void alteraEstrutura(Pessoa *pPessoa) {
+    pPessoa->nome= "Rogerio";
+    pPessoa->matricula= 98765;
+    pPessoa->salario= 9876.54;
 }
