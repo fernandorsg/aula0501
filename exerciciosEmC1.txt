@@ -1,0 +1,404 @@
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	FILE *arquivo;
+	char linha[100];
+	
+	arquivo = fopen("teste.txt", "w");
+	gets(linha);
+	while (strlen(linha) > 0) {
+		strcat(linha, "\n");
+		//comando para gravar no arquivo
+		fputs(linha, arquivo);
+		gets(linha);
+	}
+	fclose(arquivo);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	FILE *arquivo;
+	char linha[100];
+	
+	arquivo = fopen("teste.txt", "r");
+	fgets(linha, 100, arquivo);
+	while(!feof(arquivo)) {
+		printf("%s", linha);
+		fgets(linha, 100, arquivo);
+	}
+	fclose(arquivo);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	FILE *arquivo;
+	FILE *arquivoSaida;
+	char linha[100];
+	
+	arquivo = fopen("base.txt", "r");
+	arquivoSaida = fopen("bkp_base.txt", "a");
+	fgets(linha, 100, arquivo);
+	while(!feof(arquivo)) {
+		fgets(linha, 100, arquivo);
+		fputs(linha, arquivoSaida);
+	}
+	fclose(arquivo);
+	fclose(arquivoSaida);
+}
+
+#include <stdio.h>
+#include <string.h>
+#include <fstream>
+
+void converte(char);
+
+main() {
+	FILE *arquivoEntrada;
+	FILE *arquivoSaida;
+	char linha[100];
+	
+	
+	
+}
+
+void converte(char *linha){
+	int i;
+	char c = linha[0];
+	
+	for (i = 0; i < strlen(linha); i++){
+		if (c == ' ') {
+			linha[i] = toupper(linha[i]);
+		}
+		c = linha[i];
+	}
+}
+
+#include <stdio.h>
+
+main() {
+	int idade = 25;
+	int *pIdade = NULL;
+	pIdade = &idade;
+	printf("%d %d %p", idade, *pIdade, pIdade);
+}
+
+#include <stdio.h>
+
+main() {
+	int idade = 25;
+	int *pIdade = &idade;
+	printf("%d %d ", idade, *pIdade);
+	*pIdade = 20;
+	//ao alterar o valor do ponteiro na linha de cima, atera tb o valor da variavel
+	printf("%d %d", idade, *pIdade);
+}
+
+#include <stdio.h>
+
+main(){
+	int x = 10;
+	int *p1, *p2;
+	
+	p1 = &x;
+	p2 = p1;
+	
+	printf("%p %p", p1, p2);	
+}
+
+#include <stdio.h>
+
+main(){
+	int x = 10;
+	int *p1 = &x;
+	
+	printf("%d %d \n", p1 , *p1);
+	p1++;
+	printf("%d %d \n", p1 , *p1);
+	p1++;
+	printf("%d %d \n", p1 , *p1);
+	p1++;
+	printf("%d %d \n", p1 , *p1);
+}
+
+#include <stdio.h>
+
+main() {
+	char disciplina[] = "Programacao Estruturada";
+	char *c = disciplina;
+	int i, tam = strlen(disciplina);
+	
+	for (i = 0; i <= tam - 1; i++){
+		printf("%c", disciplina[i]);
+	}
+	
+	printf("\n");
+	
+	for (i = 0; i <= tam - 1; i++){
+		printf("%c", *c);
+		c++;
+	}
+}
+
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	char disciplina[] = "Programacao Estruturada";
+	char *c = disciplina;
+	int i, tam = strlen(disciplina);
+	c+=tam;
+	
+	for(i=0; i<=tam-1; i++){
+		c--;
+		printf("%c", *c);
+	}
+}
+
+#include <stdio.h>
+
+typedef struct{
+	int idade;
+	long telefone;
+} Pessoa;
+
+main(){
+	Pessoa pessoa;
+	pessoa.idade = 30;
+	pessoa.telefone = 912345678;
+	printf("%d %d \n", pessoa.idade, pessoa.telefone);
+	
+	Pessoa *pPessoa = &pessoa;
+	pPessoa->idade = 20;
+	pPessoa->telefone = 987654321;
+	printf("%d %d ", pPessoa->idade, pPessoa->telefone);
+}
+
+#include <stdio.h>
+
+void troca(int *, int *);
+
+main(){
+	int x = 10, y = 20;
+	
+	printf("X = %d e Y = %d\n", x, y);
+	//imprime na tela endereço de memoria
+	printf("X = %d e Y = %d\n", &x, &y);
+	
+	troca(&x, &y);
+	
+	printf("Apos a troca: \n");
+	printf("x = %d e Y = %d", x, y);
+}
+
+void troca(int *x, int *y){
+	int aux;
+	aux = *x;
+	*x = *y;
+	*y = aux;	
+}
+
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	char disciplina[] = "Programacao Estruturada";
+	char *c = &disciplina[22];
+	int i, tam = strlen(disciplina);
+	//c+=tam;
+	
+	printf("%s", 1disciplina);
+	printf("\n");1
+		
+	for (i = 0; i <= tam - 1; i++){
+		printf("%c", *c);
+		c--;
+	}
+}
+
+#include <stdio.h>
+
+typedef struct {
+	int idade;
+	long telefone;
+} Pessoa;
+
+void modifica(Pessoa *);
+
+main(){
+	Pessoa pessoa;
+	pessoa.idade = 20;
+	pessoa.telefone = 912345678;
+	
+	printf("%d %d \n", pessoa.idade, pessoa.telefone);
+	
+	modifica(&pessoa);
+	
+	printf("Após a troca\n");
+	printf("Idade: %d e Telefone %d", pessoa.idade, pessoa.telefone);
+}
+
+void modifica(Pessoa *pPessoa){
+	pPessoa->idade = 30;
+	pPessoa->telefone = 987654321;
+}
+
+#include <stdio.h>
+#include <string.h>
+
+main(){
+	char signo[5][10] = {"Aquario","Peixes","Aries","Touro","Gemeos"};
+	char *pSigno[5] = {"Aquario","Peixes","Aries","Touro","Gemeos"};
+
+	int i, j;
+	
+	for(i = 0; i < 5; i++){
+		for(j = 0; j < 10; j++){
+			printf("%c", signo[i][j]);
+		}
+		printf(" ");
+	}
+	
+	printf("\n");
+	for(i = 0; i < 5; i++){
+		printf("%s ", pSigno[i]);
+	}	
+}
+
+#include <stdio.h>
+
+main(){
+	int x = 10, *y, **z;
+	y = &x;
+	z = &y;
+	
+	printf("%d %d %d", x, *y, **z);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+char *ultimaPosicao(char *);
+
+main(){
+	char nome[] = "Programei";
+	char *pNome = nome;
+	printf("Primeira posicao: %c %d \n", *pNome, pNome);
+	pNome = ultimaPosicao(nome);
+	printf("Ultima posicao: %c %d", *pNome, pNome);
+}
+
+char *ultimaPosicao(char *string){
+	while(*string != '\0'){
+		printf("%c %d \n", *string, string);
+		string++;
+	}
+	string--;
+	return string;
+}
+
+#include <string.h>
+
+main(){
+	char nome[] = "Programacao Estruturada";
+	char *pNome = "Programacao Estruturada";
+	
+	printf("Antes da atribuicao: %s \n%s\n", nome, pNome);
+	//nome = "Novo Conteudo";
+	strcpy(nome, "Novo Conteudo");
+	pNome = "Novo Conteudo";
+	
+	printf("Depois da atribuicao: %s \n%s", nome, pNome);
+}
+
+#include <stdio.h>
+#include <string.h>
+
+void quantCaracteres(char *);
+
+main(){
+	char *signo[5] = {"Aquario","Peixes","Aries","Touro","Gemeos"};
+	
+	quantCaracteres(*signo);
+}
+
+void quantCaracteres(char *pSigno){
+	int i, tamanho;
+	
+	for(i=0; i<5; i++){
+		tamanho = strlen(pSigno);
+		printf("%s: %d %d\n", pSigno, tamanho, pSigno);
+		pSigno += tamanho + 1;
+	}	
+}
+
+#include <stdio.h>
+
+main(){
+	int vetor[5] = {19,23,32,41,57};
+	int *p1 = vetor;
+	int **p2 = &p1;
+	int i;
+
+	for(i=0; i < 5; i++){
+		
+		printf("%d %d \n", p1, **p2);
+		p1++;
+	}	
+}
+
+#include <stdio.h>
+#include <string.h>
+
+int *numeroMaior(int *);
+
+main(){
+	int vetor[6] = {5,0,2,9,1,8};
+	int *pVetor = vetor;
+	
+	printf("Primeira numero: %d %d \n", *pVetor, pVetor);
+	pVetor = numeroMaior(vetor);
+	printf("Ultimo numero: %d %d \n", *pVetor, pVetor);
+}
+
+int *numeroMaior(int *numero){
+	int numMaior=0, i;
+	int *pNum;
+	
+	for(i=0;i<6;i++){
+		if (*numero > numMaior){
+			numMaior= *numero;
+			pNum = numero;
+		}
+		numero++;
+	}
+	printf("O numero maior eh %d \n", numMaior);
+	return pNum;
+}
+
+#include <string.h>
+
+void inverter(char *, char *);
+
+main(){
+	char *pPalavra1 = "Programacao";
+	char *pPalavra2 = "Estruturada";
+	
+	printf("Antes: %s %s\n", pPalavra1, pPalavra2);
+
+	inverter(pPalavra1, pPalavra2);
+	
+	printf("Depois: %s %s", pPalavra1, pPalavra2);
+}
+
+void inverter(char *p1, char *p2){
+	char *p3 = p1;
+	p1 = p2;
+	p2 = p3;
+	
+	printf("Dentro da Funcao: %s %s\n", p1, p2);
+}
