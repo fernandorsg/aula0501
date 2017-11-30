@@ -1,0 +1,1495 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1561\cocoasubrtf100
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include <stdio.h>\
+\
+main()\{\
+	int i;\
+	\
+	for(i=1;i<=10;i++) printf("%d, ", i);\
+	\
+\}\
+\
+#include <stdio.h>\
+\
+main()\{\
+	int i = 1;\
+	\
+	while(i<=10) \{\
+		printf("%d\\n", i);\
+		i++;\
+	\}\
+	\
+	printf("=====================\\n");\
+	\
+	i=0;\
+	\
+	do\{\
+		i++;\
+		printf("%d\\n", i);\
+	\}while(i<10);\
+\}\
+\
+#include <stdio.h>\
+\
+main()\{\
+	int opcao, x, y;\
+	\
+	printf("Escolha uma opcao: ");\
+	scanf("%d", &opcao);\
+	\
+	switch(opcao)\{\
+		case 1:\
+			x=1;y=2;\
+			break;\
+		case 2:\
+			x=2;y=1;\
+			break;\
+		default:\
+			x=0;y=0;\
+	\}\
+	printf("x=%d e y=%d", x, y);\
+\}\
+\
+#include<stdio.h>\
+\
+main()\{\
+	int x=1, y=2, media = 6;\
+	char situacao[10];\
+	\
+	if (x==y) printf("1-igual");\
+	else printf("1-diferente");\
+	\
+	char situacao1=(x==y)?'I':'D';\
+	\
+	printf("%s\\n", situacao == 'A'?"3-Igual":"3-Diferente");\
+\}\
+\
+#include<stdio.h>\
+\
+main()\{\
+	int x, y, c=3, d=5, e=4, f=6, g=12;\
+	\
+	x = 5;\
+	y = x * ++x;\
+	c+=7;\
+	d-=4;\
+	e*=5;\
+	f/=3;\
+	g%=9;	\
+	\
+	printf("y: %d\\n", y);\
+	printf("c: %d\\n", c);\
+	printf("d: %d\\n", d);\
+	printf("e: %d\\n", e);\
+	printf("f: %d\\n", f);\
+	printf("g: %d\\n", g);\
+\}\
+\
+#include <stdio.h>\
+\
+main()\{\
+	int idade;\
+	char nome[10];\
+	float nota;\
+	\
+	printf("Hello World");\
+	printf("\\nDigite a sua idade: ");\
+	scanf("%i", &idade);\
+	printf("Digite seu nome: ");\
+	scanf("%s", nome);\
+	printf("Digite sua nota: ");\
+	scanf("%f", &a);\
+	\
+	printf("\\n=========================");\
+	printf("\\nNome: \\t\\t%s", nome);\
+	printf("\\nIdade: \\t\\t%d", idade);\
+	printf("\\nAvaliacao: \\t%.2f", nota);\
+\}\
+\
+#include <conio.c>\
+#include <stdlib.h>\
+\
+main()\{\
+	int col, lin;\
+	\
+	for(col=20; col <= 60;col++)\{\
+		for (lin=5;lin<=15;lin++)\{\
+			gotoxy(col,lin);\
+			printf("%c", 219);\
+		\}\
+	\}\
+	lin=16;\
+	for(col=22;col<=62;col++)\{\
+		gotoxy(col,lin);\
+			printf("%c", 177);\
+	\}\
+	col=61;\
+	for (lin=6;lin<=16;lin++)\{\
+			gotoxy(col,lin);\
+			printf("%c%c", 177, 177);\
+		\}\
+	lin=5;\
+	textcolor(BLUE);\
+	textbackground(LIGHTGRAY);\
+	for(col=21;col<=59;col++)\{\
+		gotoxy(col,lin);\
+		printf("%c",205);\
+	\}\
+	lin=15;\
+	textcolor(BLUE);\
+	textbackground(LIGHTGRAY);\
+	for(col=21;col<=59;col++)\{\
+		gotoxy(col,lin);\
+		printf("%c",205);\
+\}\
+col=20;\
+	for (lin=6;lin<=14;lin++)\{\
+			gotoxy(col,lin);\
+			printf("%c", 186);\
+		\}\
+	col=60;\
+	for (lin=6;lin<=14;lin++)\{\
+			gotoxy(col,lin);\
+			printf("%c", 186);\
+		\}\
+	gotoxy(20,5);\
+	printf("%c",201);\
+	gotoxy(20,15);\
+	printf("%c",200);\
+	gotoxy(60,5);\
+	printf("%c",187);\
+	gotoxy(60,15);\
+	printf("%c",188);\
+	\
+	gotoxy(30,7);\
+	printf("Menu Principal");\
+	\
+	gotoxy(23,9);\
+	printf("1 Somar");\
+	\
+	gotoxy(23,10);\
+	printf("2 Subtrair");\
+	\
+	gotoxy(23,12);\
+	printf("Escolha opcao(x para sair): ");\
+	\
+	gotoxy(23,14);\
+	printf("Resultado:   ");\
+	\
+	int resultado = 0,x=10,y=5;\
+	char k;\
+	\
+	do\{\
+		gotoxy(23,14);\
+		printf("Resultado:   ");\
+		\
+		gotoxy(51,12);\
+		\
+		k=getch();\
+		if(k == '1')\
+			resultado = x + y;\
+		if(k == '2')\
+			resultado = x - y;\
+		\
+		gotoxy(35,14);\
+		printf("%d", resultado);\
+	\}while(k != 'x');	\
+\}\
+\
+#include <conio.c>\
+\
+main()\{\
+	int coluna=35, linha=5;\
+	//limpa a tela\
+	clrscr();\
+	gotoxy(coluna,linha);\
+	printf("mensagem");\
+	\
+	//cor do texto entre 0 e 15\
+	textcolor(9);\
+	//cor de fundo entre 0 e 15\
+	textbackground(WHITE);\
+	printf("escreve azul");\
+\}\
+\
+//2. Escreva um programa em C que receba tr\'eas n\'fameros inteiros diferentes digitados no teclado e imprima a soma,\
+//a m\'e9dia, a multiplica\'e7\'e3o, o menor e o maior desses n\'fameros.\
+\
+#include <stdio.h>\
+main()\{\
+	int v1, v2, v3, sm, mlt, menor, maior;\
+	float media;\
+	\
+	printf("Digite o primeiro valor: ");\
+	scanf("%d", &v1);\
+	printf("Digite o segundo valor: ");\
+	scanf("%d", &v2);\
+	printf("Digite o terceiro valor: ");\
+	scanf("%d", &v3);\
+	\
+	sm=v1+v2+v3;\
+	media=sm/3;\
+	mlt=v1*v2*v3;\
+	\
+	if (v1<v2)\{\
+		menor=v1;\
+	\}\
+	else if (v1<3)\{\
+		\
+	\}\
+	\
+\}\
+\
+#include <stdlib.h>\
+\
+main()\{\
+	//rand gera um n\'famero entre os descritos, sendo sempre o mesmo\
+	//int aleatorio = 1 + rand()% 10;\
+	//com a fun\'e7\'e3o srand geram os n\'fameros aleatoriamente\
+	srand(time(NULL));\
+	int aleatorio = 1 + rand()% 10;\
+	printf("%d", aleatorio);\
+\}\
+\
+#include <math.h>\
+\
+main()\{\
+	int numero = 16;\
+	int num2 = 4;\
+	//fun\'e7\'e3o sqrt \'e9 a RAIZ\
+	float raiz = sqrt(numero);\
+	printf("%.2f", raiz);\
+	\
+	//eleva ao quadrado o numero\
+	int quad = pow(num2, 2);\
+	//eleva ao cubo o numero\
+	int cubo = pow(num2, 3);\
+	\
+	printf("\\n%d", quad);\
+	printf("\\n%d", cubo);\
+	printf("\\n\\n");\
+	printf("%d", num2*=4);\
+\}\
+\
+#include <stdio.h>\
+#include <locale.h>\
+#include <conio.h>\
+#include <string.h>\
+\
+main()\{\
+	setlocale(LC_ALL,"Portuguese");\
+	/*\
+	char caractere;\
+	//captura tecla sem exibi-la. n\'e3o espera ENTER\
+	//caractere = getch();\
+	caractere = getche();\
+	printf("%c", caractere);\
+	*/\
+	\
+	char nome[10], sobrenome[15];\
+	char nomeCompleto[25] = "";\
+	int tamanho = 0;\
+	\
+	//atribui o entre aspas a variavel nome\
+	strcpy(nome, "Fernando");\
+	//atribui o entre aspas a variavel sobrenome\
+	strcpy(sobrenome, "Gomes");\
+	\
+	/*\
+	puts(nome);\
+	puts(sobrenome);*/\
+	\
+	//concatena duas strings\
+	strcat(nomeCompleto, nome);\
+	strcat(nomeCompleto, " ");\
+	strcat(nomeCompleto, sobrenome);\
+	//mostra na tela\
+	puts(nomeCompleto);\
+	//atribui o tamanho de nome a variavel tamanho\
+	tamanho = strlen(nome);\
+	printf("%d", tamanho);\
+\}\
+\
+#include <stdio.h>\
+#include <locale.h>\
+\
+main ()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	char nomeCompleto[30];\
+	\
+	printf("Digite o nome completo: ");\
+	//leitura de palavras com espa\'e7os no meio\
+	gets(nomeCompleto);\
+	\
+	printf("Seu nome \'e9: %s", nomeCompleto);\
+\}\
+\
+#include <stdio.h>\
+const float PI = 3.141592;\
+//diferan\'e7a entra constante(valor inteiro, float, decimal) e define(pode ser tudo da constante e ainda express\'f5es)\
+//\'e9 que o define atribui o valor pre setado\
+#define pi 3.141592;\
+#define comparacao (x>y);\
+\
+//setando localiza\'e7\'e3o br\
+#include <locale.h>\
+\
+main()\{\
+	//linha define idioma\
+	setlocale(LC_ALL,"Portuguese");\
+	char nomeCompleto[30];\
+		\
+	/*\
+	int x=3, y=1;\
+	if comparacao\{\
+		\
+	\}\
+	printf("%f", PI);*/\
+	\
+	printf("cora\'e7\'e3o");\
+\}\
+\
+//1. Escreva um programa em C que leia 4 vari\'e1veis: uma inteira, uma real, uma letra e uma palavra, depois imprima os valores na tela.\
+\
+#include <stdio.h>\
+#include <locale.h>\
+\
+main ()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	int numero = 0;\
+	float real = 0;\
+	char letra = "";\
+	char palavra[10] = "";\
+	\
+	printf("Digite um n\'famero inteiro: ");\
+	scanf("%d", &numero);\
+	\
+	printf("Digite um n\'famero real: ");\
+	scanf("%f", &real);\
+	\
+	printf("Digite um caractere: ");\
+	getch(letra);\
+	\
+	printf("Digite uma palavra: ");\
+	getch(palavra);\
+	\
+	printf("O n\'famero Inteiro \'e9 %d, o Real \'e9 %.2f, o caracter %c e a palavra %s.", numero, real, letra, palavra);\
+\}\
+\
+Exemplo1\
+#include <stdio.h>\
+\
+//sempre colocar o prot\'f3tipo da fun\'e7\'e3o\
+float quadrado(float);\
+\
+main()\{\
+	float q, i=5;\
+	q=quadrado(i);\
+	printf("%.2f\\n", q);\
+	printf("%.2f\\n", quadrado(i));\
+\}\
+\
+float quadrado(float n)\{\
+	return n*n;\
+\}\
+\
+/*\
+exemplo com prototipo, variaveis e fun\'e7\'e3o do tipo int\
+int quadrado(int);\
+\
+main()\{\
+	int q, i=5;\
+	q=quadrado(i);\
+	printf("%d\\n", q);\
+	printf("%d\\n", quadrado(i));\
+\}\
+\
+int quadrado(int n)\{\
+	return n*n;\
+\}*/\
+\
+Exemplo2\
+#include <stdio.h>\
+\
+int valor=0, outroValor;\
+\
+main()\{\
+	valor++;\
+	int outroValor=0;\
+\}\
+\
+void acessaOutroValor()\{\
+	outroValor++;\
+\}\
+\
+Exemplo3\
+#include <stdio.h>\
+\
+void incrementa(void);\
+\
+main()\{\
+	int i;\
+	for(i=1;i<=10;i++)\{\
+		incrementa();\
+	\}\
+\}\
+\
+void incrementa()\{\
+	int variavel=0;\
+	//declara-se uma vari\'e1vel est\'e1tica dentro da fun\'e7\'e3o para mantermos o valor que \'e9 atribu\'eddo a ela a cada itera\'e7\'e3o do c\'f3digo\
+	static int variavelEstatica=0;\
+	\
+	variavel++;\
+	variavelEstatica++;\
+	printf("V: %d, VE: %d\\n", variavel, variavelEstatica);\
+\}\
+\
+Exemplo4\
+#include <stdio.h>\
+\
+//entrada de parametros por linha de comando DOS\
+\
+main(int argc, char *argv[])\{\
+	int i;\
+	for (i=0;i< argc;i++) printf("Parametro %d: %s\\n", i, argv[i]);\
+\}\
+\
+Exemplo5\
+#include <stdio.h>\
+\
+int incrementa(int);\
+\
+main()\{\
+	int a = 1;\
+	int b = incrementa(a);\
+	printf("a: %d, b: %d", a, b);\
+\}\
+\
+int incrementa(int x)\{\
+	return x += 1;\
+\}\
+\
+Exemplo6\
+#include <stdio.h>\
+\
+int fatorial(int n);\
+\
+main()\{\
+	int i = fatorial(5);\
+	printf("%d\\n", i);\
+\}\
+\
+//recursividade da fun\'e7\'e3o dentro dela mesma\
+int fatorial(int n)\{\
+	if (n == 1) return 1;\
+	int x = fatorial(n-1)*n;\
+	return x;\
+\}\
+\
+Exemplo1\
+#include <stdio.h>\
+\
+void dobroPorValor(int);\
+\
+main()\{\
+	int n=2;\
+	dobroPorValor(n);\
+	printf("%d", n);\
+\}\
+\
+void dobroPorValor(int n)\{\
+	n=n*2;\
+\}\
+\
+Exemplo2\
+#include <stdio.h>\
+\
+void dobroPorReferencia(int *);\
+\
+main()\{\
+	int n = 2;\
+	dobroPorReferencia(&n);\
+	printf("%d", n);\
+\}\
+\
+void dobroPorReferencia(int *n)\{\
+	*n=(*n)*2;\
+\}\
+\
+Exemplo3\
+#include <stdio.h>\
+\
+//prototipo da fauncao\
+void recebeValor(int *, int *);\
+\
+main()\{\
+	int x=1, y=2;\
+	recebeValor(&x, &y);//passara o endereco de memoria dos dois parametros\
+	printf("%d %d\\n", x, y);\
+\}\
+\
+void recebeValor(int *a, int *b)\{\
+	printf("%d %d \\n", a, b);\
+	printf("%d %d \\n", *a, *b);\
+	*a*=2;\
+	*b*=2;\
+\}\
+\
+Exemplo4\
+#include <stdio.h>\
+#include <string.h>\
+\
+void testeArray(char *, int *);\
+\
+main()\{\
+	char nome[]="Programacao Estruturada";\
+	int n = strlen(nome);\
+	printf("A matriz %s antes da aplicacao da funcao tem %d letras.\\n", nome, n);\
+	testeArray(nome, &n);\
+	printf("A matriz %s apos a aplicacao da funcao tem %d letras.", nome, n);\
+\}\
+\
+void testeArray(char *s, int *n)\{\
+	strcpy(s, "Algoritmos");\
+	*n=strlen(s);\
+	\
+\}\
+\
+Exemplo5\
+#include <stdio.h>\
+#define TAM 3\
+\
+void imprimeCodigo(int*, int);\
+void alteraCodigo(int*, int);\
+\
+main()\{\
+	int codigo[TAM]=\{1,2,3\};\
+	alteraCodigo(codigo, TAM);\
+	imprimeCodigo(codigo, TAM);\
+\}\
+\
+void imprimeCodigo(int *c, int n)\{\
+	int i;\
+	for(i=0;i<n;i++) printf("%d\\n", c[i]);\
+\}\
+\
+void alteraCodigo(int *c, int n)\{\
+	int i;\
+	for(i=0;i<n;i++) c[i]=c[i]*2;\
+\}\
+\
+Exemplo Calculadora\
+arquivo calc.h\
+/* Funcao media:\
+Calcula a media entre dois numeros float e retorna um float.*/\
+float media(float, float);\
+\
+/* Funcao soma:\
+Calcula a soma entre dois numeros float e retorna um float.*/\
+float soma(float, float);\
+\
+arquivo calc.c\
+#include "calc.h"//inclusao do arquivo header\
+\
+float media(float x, float y)\{\
+	return (x+y)/2;\
+\}\
+\
+float soma(float x, float y)\{\
+	return x+y;\
+\}\
+\
+arquivo calculadora.c\
+#include <stdio.h>\
+#include "calc.c"\
+\
+main()\{\
+	float a=5, b=7;\
+	float r1=soma(a,b);\
+	float r2=media(a,b);\
+	printf("Soma: %.2f, Media: %.2f.", r1, r2);\
+\}\
+\
+exemplo1\
+#include <stdio.h>\
+\
+main()\{\
+	int matricula;\
+	char nome[20];\
+	//indica um ponteiro para a estrutura FILE\
+	FILE *arquivo;\
+	\
+	arquivo = fopen("pessoal.dat", "w");\
+	\
+	printf("Matricula: ");\
+	scanf("%d", &matricula);\
+	printf("Nome: ");\
+	scanf("%s", nome);\
+	\
+	fprintf(arquivo, "%d %s ", matricula, nome);\
+	fclose(arquivo);\
+\}\
+\
+exemplo2\
+#include <stdio.h>\
+\
+main()\{\
+	int matricula;\
+	char nome[20];\
+	FILE *arquivo;\
+	\
+	arquivo = fopen("pessoal.dat", "r");\
+	printf("Matricula Nome \\n");\
+	fscanf(arquivo, "%d%s", &matricula, nome);\
+	while(!feof(arquivo))\{\
+		printf("%-9d %s", matricula, nome);\
+		fscanf(arquivo, "%d%s", &matricula, nome);\
+	\}\
+	fclose(arquivo);\
+\}\
+\
+exercicio1\
+#include <stdio.h>\
+#include <locale.h>\
+\
+int matricula;\
+char nome[20], departamento[20], cargo[20];\
+FILE *arquivo;\
+\
+void cadastrar(void);\
+void imprimir(void);\
+void limpar(void);\
+void menu(void);\
+\
+main()\
+\{\
+	setlocale(LC_ALL, "Portuguese");\
+		\
+	menu();\
+	\
+\}\
+\
+void cadastrar()\
+\{\
+	arquivo = fopen("funcionario.dat", "a");\
+	\
+	printf("Cadastro de Funcion\'e1rio\\n");\
+	printf("Matr\'edcula: ");\
+	scanf("%d", &matricula);\
+	\
+	printf("Nome: ");\
+	scanf("%s", nome);\
+	\
+	printf("Departamento: ");\
+	scanf("%s", departamento);\
+	\
+	printf("Cargo: ");\
+	scanf("%s", cargo);\
+	\
+	fprintf(arquivo, "%d %s %s %s ", matricula, nome, departamento, cargo);\
+	fclose(arquivo);\
+\}\
+\
+void imprimir()\
+\{\
+	arquivo = fopen("funcionario.dat", "r");\
+	\
+	printf("%10s %-20s %-20s %-20s \\n", "Matricula","Nome","Departamento","Cargo");\
+	fscanf(arquivo, "%d%s%s%s", &matricula, nome, departamento, cargo);\
+	while(!feof(arquivo))\{\
+		printf("%10d %-20s %-20s %-20s \\n", matricula, nome, departamento, cargo);\
+		fscanf(arquivo, "%d%s%s%s", &matricula, nome, departamento, cargo);\
+	\}\
+	fclose(arquivo);\
+\}\
+\
+void limpar()\
+\{\
+	arquivo = fopen("funcionario.dat", "w");\
+	\
+	fclose(arquivo);\
+\}\
+\
+void menu()\
+\{\
+	int opcao;\
+	\
+	printf("=======================\\n");\
+	printf("1 - Cadastrar\\n");\
+	printf("2 - Imprimir\\n");\
+	printf("3 - Limpar\\n");\
+	printf("4 - SAIR\\n");\
+	printf("=======================\\n");\
+	printf("===Escolha uma op\'e7\'e3o: ");\
+	scanf("%d", &opcao);\
+	\
+	switch(opcao)\{\
+		case 1:\
+			cadastrar();\
+			break;\
+		case 2:\
+			imprimir();\
+			break;\
+		case 3:\
+			limpar();\
+			break;\
+//		case 4:\
+//			sair();\
+//			break;\
+		default:\
+			printf("Op\'e7\'e3o inv\'e1lida");\
+	\}\
+\}\
+\
+exemplo1\
+#include <stdio.h>\
+\
+struct Aluno \{\
+	int matricula;\
+	char nome[20];\
+\} aluno1;\
+\
+struct Aluno aluno2;\
+\
+main()\{\
+	aluno1.matricula = 25;\
+	strcpy(aluno1.nome, "Maria");\
+	\
+	aluno2.matricula = 30;\
+	strcpy(aluno2.nome, "Joana");\
+	\
+	printf("%d %s \\n", aluno1.matricula, aluno1.nome);\
+	printf("%d %s \\n", aluno2.matricula, aluno2.nome);\
+\}\
+\
+exemplo2\
+#include <stdio.h>\
+\
+typedef struct \{\
+	int matricula;\
+	char nome[20];\
+\} Aluno;\
+\
+Aluno aluno1=\{25,"Maria"\};\
+Aluno aluno2;\
+\
+main()\{\
+	aluno2.matricula = 30;\
+	strcpy(aluno2.nome,  "Joana");\
+	\
+	printf("%d %s \\n", aluno1.matricula, aluno1.nome);\
+	printf("%d %s \\n", aluno2.matricula, aluno2.nome);\
+\}\
+\
+exemplo3\
+#include <stdio.h>\
+\
+typedef struct \{\
+	int matricula;\
+	char nome[20];\
+	float nota;\
+\} Aluno;\
+\
+main()\{\
+	FILE *arqAluno;\
+	Aluno aluno = \{0,"",0\};\
+	int i;\
+	\
+	arqAluno = fopen("aluno.dat", "w");\
+	for (i=1; i<=10; i++)\{\
+		fwrite(&aluno, sizeof(Aluno), 1, arqAluno);\
+	\}\
+	fclose(arqAluno);\
+\}\
+\
+exemplo4\
+#include <stdio.h>\
+\
+typedef struct \{\
+	int matricula;\
+	char nome[20];\
+	float nota;\
+\} Aluno;\
+\
+main()\{\
+	FILE *arqAluno;\
+	Aluno aluno;\
+	int i;\
+	\
+	arqAluno = fopen("aluno.dat", "r");\
+	fread(&aluno, sizeof(Aluno), 1, arqAluno);\
+	while (!feof(arqAluno)) \{\
+		printf("%3d ", aluno.matricula);\
+		printf("%-20s ", aluno.nome);\
+		printf("%.2f ", aluno.nota);\
+		printf("\\n");\
+		fread(&aluno, sizeof(Aluno), 1, arqAluno);\
+	\}\
+	fclose(arqAluno);\
+\}\
+\
+exemplo5\
+#include <stdio.h>\
+\
+typedef struct \{\
+	int matricula;\
+	char nome[20];\
+	float nota;\
+\} Aluno;\
+\
+main()\{\
+	FILE *arqAluno;\
+	Aluno aluno;\
+	int i;\
+	\
+	arqAluno = fopen("aluno.dat", "r+");\
+	\
+	int mat = 4;\
+	aluno.matricula = mat;\
+	strcpy(aluno.nome, "teclado");\
+	aluno.nota = 9.2;\
+	\
+	int posicao = (mat - 1) * sizeof(Aluno);\
+	fseek(arqAluno, posicao, SEEK_SET);\
+	fwrite(&aluno, sizeof(Aluno), 1, arqAluno);\
+	\
+	rewind(arqAluno);\
+\}\
+\
+exercicio1\
+#include <stdio.h>\
+#include <locale.h>\
+\
+typedef struct \{\
+	int matricula;\
+	char nome[20];\
+	char departamento[20];\
+	char cargo[20];\
+\} Funcionario;\
+\
+Funcionario funcionario;\
+\
+int opcao;\
+FILE *arqFuncionario;\
+\
+void cadastrar();\
+void imprimir();\
+void limpar();\
+void menu();\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	char novoCad;\
+	\
+	menu();\
+	scanf("%i", &opcao);\
+	do \{\
+		switch(opcao)\{\
+			case 1:\
+				cadastrar();\
+				printf("Deseja cadastrar mais algum funcion\'e1rio? [s-sim][n-n\'e3o] \\n");\
+				novoCad = getch();\
+				if (novoCad != 'n' || novoCad != 'N')\{\
+					cadastrar();\
+				\}\
+				else \{\
+					break;\
+				\}			\
+			case 2:\
+				imprimir();\
+				break;\
+			case 3:\
+				limpar();\
+				break;\
+			case 4:\
+				sair();\
+				break;\
+			default:\
+				printf("Op\'e7\'e3o inv\'e1lida.");\
+		\}\
+		\
+	\} while (opcao != 4);\
+\}\
+\
+void cadastrar()\{\
+	arqFuncionario = fopen("func_aleatorio.dat", "a");\
+	\
+	printf("Digite a matr\'edcula do Funcion\'e1rio: ");\
+	scanf("%i", &funcionario.matricula);\
+	\
+	printf("Digite o nome do Funcion\'e1rio: ");\
+	scanf("%s", funcionario.nome);\
+	\
+	printf("Digite o departamento: ");\
+	scanf("%s", funcionario.departamento);\
+	\
+	printf("Digite o cargo: ");\
+	scanf("%s", funcionario.cargo);\
+	\
+	fprintf(arqFuncionario, "%d %s %s %s ", funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);\
+	fclose(arqFuncionario);\
+\}\
+\
+void imprimir()\{\
+	arqFuncionario = fopen("func_aleatorio.dat", "r");\
+	\
+	printf("%10s %-20s %-20s %-20s \\n", "Matricula","Nome","Departamento","Cargo");\
+	fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);\
+	while(!feof(arqFuncionario))\{\
+		printf("%10d %-20s %-20s %-20s \\n", funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);\
+		fscanf(arqFuncionario, "%d%s%s%s", &funcionario.matricula, funcionario.nome, funcionario.departamento, funcionario.cargo);\
+	\}\
+	fclose(arqFuncionario);\
+\}\
+\
+void limpar()\{\
+	arqFuncionario = fopen("func_aleatorio.dat", "w");\
+	\
+	fclose(arqFuncionario);\
+\}\
+\
+void menu()\{\
+	printf("===== Cadastro de Funcion\'e1rios\\n");\
+	printf("==============================\\n");\
+	printf("1 - Cadastrar\\n");\
+	printf("2 - Imprimir\\n");\
+	printf("3 - Limpar\\n");\
+	printf("4 - SAIR\\n");\
+	printf("==============================\\n");\
+	printf("Escolha uma op\'e7\'e3o: ");\
+\}\
+\
+void sair()\{\
+	exit(0);\
+\}\
+\
+Exerc\'edcio1\
+#include <stdio.h>\
+\
+main()\{\
+	int inteira = 0;\
+	float real = 0;\
+	char letra;\
+	char palavra[10];\
+	\
+	printf("Digite um n\'famero inteiro: ");\
+	scanf("%d", &inteira);\
+	fflush(stdin);\
+	\
+	printf("Digite um n\'famero real: ");\
+	scanf("%f", &real);\
+	fflush(stdin);\
+	\
+	printf("Digite um caracter: ");\
+	getch(letra);\
+	\
+	printf("Digite uma palavra: ");\
+	getch(palavra);\
+	\
+	printf("O inteiro: %d", inteira);\
+	printf("O real: %.2f", real);\
+	printf("A letra: %c", letra);\
+	printf("A palavra: %s", palavra);\
+\}\
+Exerc\'edcio2\
+#include <stdio.h>\
+\
+main()\{\
+	int x = 0, y = 0, z = 0, soma = 0, multi = 0, maior = 0, menor = 0;\
+	float media = 0;\
+	\
+	printf("digite um n\'famero: ");\
+	scanf("%d", &x);\
+	printf("digite um n\'famero: ");\
+	scanf("%d", &y);\
+	printf("digite um n\'famero: ");\
+	scanf("%d", &z);\
+	\
+	soma=x+y+z;\
+	multi=x*y*z;\
+	media=soma/3;\
+	\
+	if (x>y && x>z) maior=x;\
+	else if (y>x && y>z) maior=y;\
+	else maior=z;\
+	\
+	if (x<y && x<z) menor = x;\
+	else if (y<x && y<z) menor = y;\
+	else menor = z;\
+	\
+	printf("Soma: %d\\n", soma);\
+	printf("M\'e9dia: %.2f\\n", media);\
+	printf("Multiplica\'e7\'e3o: %d\\n", multi);\
+	printf("Maior: %d\\n", maior);\
+	printf("Menor: %d\\n", menor);\
+\}\
+Exercicio3\
+#include <stdio.h>\
+\
+main()\{\
+	int num = 0;\
+	\
+	printf("Digite um n\'famero inteiro: ");\
+	scanf("%d", &num);\
+	\
+	if ((num % 2) == 0) printf("Par");\
+	else printf("Impar");\
+\}\
+Exercicio4\
+#include <stdio.h>\
+\
+main()\{\
+    int soma = 0;\
+	for (int i = 1; i <= 30; i++)\{\
+		if (i % 2 == 0) soma = soma + i;\
+	\}\
+	printf("A soma dos pares \'e9: %d", soma);\
+\}\
+Exercicio5\
+#include <stdio.h>\
+\
+main()\{\
+	int quad, cubo;\
+	for (int i = 1; i <= 10; i++)\{\
+		quad = i * i;\
+		cubo = i * i * i;\
+		printf("Quad: %d = %d\\t", i, quad);\
+		printf("Cubo: %d = %d\\t", i, cubo);\
+	\}\
+\}\
+\
+Exercicio6\
+#include <stdio.h>\
+\
+main()\{\
+	int numero, i, c;\
+	char exibe = '*';\
+	\
+	printf("Digite um numero: ");\
+	scanf("%i", &numero);\
+	\
+	for (i=0;i<numero;i++)\{\
+		for (c=0;c<numero;c++)\{\
+			printf("%c", exibe);\
+		\}\
+		printf("\\n");\
+	\}	\
+\}\
+\
+Exercicio7\
+\
+Exercicio8\
+#include <stdio.h>\
+\
+main()\{\
+	int numero, limite;\
+	int controle = 1;\
+	\
+	printf("Digite um numero: ");\
+	scanf("%i", &numero);\
+	limite = numero;\
+	\
+	while (controle<limite)\{\
+		numero= numero * controle;\
+		controle++;\
+	\}\
+	printf("O fatorial de %i = %i.", limite, numero);\
+	\
+\}\
+\
+Exercicio9\
+#include <stdio.h>\
+#include <locale.h>\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	float valorInvestido, numMeses, percRendimento, valorFinal;\
+	\
+	printf("Digite o valor a ser investido: ");\
+	scanf("%f", &valorInvestido);\
+	printf("Digite o n\'famero de meses: ");\
+	scanf("%f", &numMeses);\
+	printf("Percentual de rendimento(mensal): ");\
+	scanf("%f", &percRendimento);\
+	\
+	valorFinal = valorInvestido + (valorInvestido * (numMeses * percRendimento)/100);\
+	\
+	printf("O valor final ser\'e1: %.2f", valorFinal);\
+\}\
+\
+Exercicio10\
+#include <stdio.h>\
+#include <locale.h>\
+#define SALARIO 200\
+#define COMISSAO 0.09\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	int opcao;\
+	float vendaBruta = 0, salarioBruto = 0, folhaPagamento = 0;\
+	\
+	do\{\
+		printf("1 - Calcular Sal\'e1rio\\n");\
+		printf("2 - Total Folha Pag\\n");\
+		printf("0 - Sair\\n");\
+		printf("*********************\\n");\
+		printf("Escolha uma op\'e7\'e3o: ");\
+		scanf("%d", &opcao);\
+		if (opcao < 0 || opcao > 2)\{\
+			printf("Op\'e7\'e3o inv\'e1lida, digite novamente: ");\
+			scanf("%d", &opcao);\
+		\}\
+		\
+		switch(opcao)\{\
+			case 1:\
+				printf("Total de Vendas: ");\
+				scanf("%f", &vendaBruta);\
+				\
+				salarioBruto = SALARIO + (vendaBruta * COMISSAO);\
+				folhaPagamento = folhaPagamento + salarioBruto;\
+				\
+				printf("Sal\'e1rio Bruto: %.2f\\n", salarioBruto);\
+				break;\
+			case 2:\
+				printf("Total Folha de Pagamento: %.2f\\n", folhaPagamento);\
+				break;\
+			case 0:\
+				break;\
+		\}\
+	\} while(opcao != 0);\
+\}\
+\
+Exercicio1\
+#include <stdio.h>\
+#include <stdlib.h>\
+#include <conio.h>\
+\
+main()\{\
+    int numero=0, contUm=0, contDois=0, contTres=0;\
+    \
+    printf("Digite um n\'famero: ");\
+    scanf("%d", &numero);\
+    \
+    if ((numero < 100) && (numero > 1000))\{\
+        printf("N\'famero inv\'e1lido, redigite-o: ");\
+        scanf("%d", &numero);\
+    \}\
+    else\{\
+        for (int i = 1; i <= numero; i++)\{\
+        int x = 1 + (rand() % 3);\
+        switch (x)\{\
+            case 1:\
+                contUm++;\
+                break;\
+            case 2:\
+                contDois++;\
+                break;\
+            case 3:\
+                contTres++;\
+                break;\
+        \}\
+    \}\
+    \
+    printf("Itera\'e7\'f5es UM: %d\\n", contUm);\
+    printf("Itera\'e7\'f5es DOIS: %d\\n", contDois);\
+    printf("Itera\'e7\'f5es TR\'caS: %d", contTres);\
+    getch();\
+\}\
+\
+Exercicio6\
+#include <stdio.h>\
+\
+main()\{\
+	float peso, altura, imc;\
+	\
+	do \{\
+	    printf ("** C\'e1lculo do IMC **\\n");\
+	    printf ("Digite o peso: ");\
+	    scanf ("%f", &peso);\
+	    \
+	    if (peso == 0) return 0;\
+	    while (peso < 0) \{\
+	        printf ("Peso inferior ao 0(Zero). Redigite: ");\
+	        scanf ("%f", &peso);\
+	    \}\
+	    \
+	    printf ("Digite a altura: ");\
+		scanf ("%f", &altura);\
+	\
+		while (altura <= 0) \{\
+			printf ("Altura inv\'e1lida. Redigite: ");\
+			scanf ("%f", &altura);\
+		\}\
+		\
+		imc = peso / (altura * altura);\
+		\
+		if (imc < 18.6) printf ("Abaixo do Peso\\n");\
+		else if (imc < 25) printf ("Peso Ideal\\n");\
+		else if (imc < 30) printf ("Levemente acima do Peso\\n");\
+		else if (imc < 35) printf ("Obesidade Grau 1\\n");\
+		else if (imc < 40) printf ("Obesidade Grau 2\\n");\
+		else printf ("Obesidade Grau 3\\n");\
+		\
+		printf("\\n");\
+		\
+		imc = 0;\
+	\} while (peso != 0);\
+\}\
+\
+Exercicio7\
+#include <stdio.h>\
+#define PI 3.141592\
+\
+main()\{\
+    float raio, area;\
+    \
+    printf("Digite o raio do c\'edrculo: ");\
+    scanf("%f", &raio);\
+    \
+    while (raio <= 0)\{\
+        printf("Raio inv\'e1lido, redigite: ");\
+        scanf("%f", &raio);\
+    \}\
+    \
+    area = PI * (raio*raio);\
+    \
+    printf("A \'e1rea do c\'edrculo \'e9: %.2f", area);\
+\}\
+\
+Exercicio8\
+#include <stdio.h>\
+\
+main()\{\
+    float alc, gas, result;\
+    \
+    printf ("Digite o pre\'e7o do \'c1lcool: ");\
+    scanf ("%f", &alc);\
+    printf ("Digite o pre\'e7o da Gasolina: ");\
+    scanf ("%f", &gas);\
+    \
+    result = alc / gas;\
+    \
+    if (result < 0.7) printf ("+++++ Abaste\'e7a com \'c1lcool!");\
+    else printf ("+++++ Abaste\'e7a com Gasolina!");\
+\}\
+\
+Exercicio9\
+#include <stdio.h>\
+#include <stdlib.h>\
+#include <conio.h>\
+\
+int main(void)\{\
+    int opcao, x = 30, y = 30;\
+    float v1, v2, result;\
+    \
+    printf("Calculadora\\n");\
+    printf("1 - Adi\'e7\'e3o\\n");\
+    printf("2 - Subtra\'e7\'e3o\\n");\
+    printf("3 - Multiplica\'e7\'e3o\\n");\
+    printf("4 - Divis\'e3o\\n");\
+    printf("0 - SAIR\\n");\
+    printf("*****************\\n");\
+    \
+    printf("Valor UM: ");\
+    scanf("%f", &v1);\
+    \
+    printf("Valor DOIS: ");\
+    scanf("%f", &v2);\
+    \
+    printf("Escolha uma opera\'e7\'e3o: ");\
+    scanf("%i", &opcao);\
+    \
+    switch (opcao) \{\
+        case 1:\
+            result = v1 + v2;\
+            break;\
+        case 2:\
+            result = v1 - v2;\
+            break;\
+        case 3:\
+            result = v1 * v2;\
+            break;\
+        case 4:\
+            if (v2 == 0) \{\
+                printf ("Imposs\'edvel divis\'e3o por 0.");\
+                return 0;\
+            \}\
+            else \{\
+                result = v1 / v2;\
+            \}\
+            break;\
+        case 0:\
+            return 0;\
+    \}\
+    goto(x,y);\
+    printf("Resultado: %.2f", result);\
+\}\
+\
+Exercicio1\
+#include <stdio.h>\
+\
+int verificaPar(int);\
+\
+main()\{\
+	int x;\
+	\
+	do\{\
+		printf("Digite um numero: ");\
+	scanf("%d", &x);\
+	verificaPar(x);\
+	\} while (x != 0);\
+\}\
+\
+int verificaPar(int x)\{\
+	if (x == 0) return 0;\
+	if (x % 2 == 0) printf("Par\\n");\
+	else printf("Impar\\n");\
+\}\
+\
+Exercicio2\
+#include <stdio.h>\
+\
+int quadrado(int);\
+int cubo(int);\
+\
+main()\{\
+	int x, y;\
+	printf("digite um numero: ");\
+	scanf("%d", &x);\
+	y = x;\
+	\
+	printf("Quadrado de %d: %d.\\n", y, quadrado(x));\
+	printf("Cubo de %d: %d.\\n", y, cubo(x));\
+\}\
+\
+int quadrado(int x)\{\
+	return x*x;\
+\}\
+\
+int cubo(int x)\{\
+	return x*x*x;\
+\}\
+\
+Exercicio3\
+#include <stdio.h>\
+\
+int fibonacci(int);\
+\
+main()\{\
+	int x, aux;\
+	\
+	printf("S\'e9rie Fibonacci+++++\\n");\
+	printf("++++++++++++++++++++\\n");\
+	\
+	fibonacci(x);\
+\}\
+\
+int fibonacci(int x)\{\
+	x = 0;\
+	int aux, y = 1;\
+	while (x <= 1000)\{\
+		printf("%d\\n", x);\
+		aux = x + y;\
+		x = y;\
+		y = aux;		\
+	\}	\
+\}\
+\
+Exercicio4\
+\
+\
+Exercicio1\
+#include <stdio.h>\
+#include <locale.h>\
+\
+void trocaValores(int *, int *);\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	int a=10, b=5;\
+	\
+	printf("Valor a = %d e valor b = %d.\\n", a, b);\
+	trocaValores(&a, &b);\
+	printf("Ap\'f3s a troca dos valores a = %d e b = %d.", a, b);\
+\}\
+\
+void trocaValores(int *a, int *b)\{\
+	int aux= (*a);\
+	*a= (*b);\
+	*b=aux;\
+\}\
+\
+Exercicio2\
+//faltou gerar os numeros negativos\
+#include <stdio.h>\
+#include <stdlib.h>\
+#include <time.h>\
+#include <locale.h>\
+\
+void trocaSinal(int *);\
+void sorteio(int);\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	int n;\
+	trocaSinal(&n);	\
+	sorteio(&n);\
+\}\
+\
+void trocaSinal(int *n)\{\
+	return *n * (-1);\
+\}\
+\
+void sorteio(int n)\{\
+	int limite = 0;\
+	srand(time(NULL));\
+	while (limite < 20)\{\
+		printf("%d\\n", rand() % 20);\
+	\
+		limite++;\
+	\}\
+\}\
+\
+Exercicio4\
+#include <stdio.h>\
+#include <string.h>\
+#include <locale.h>\
+\
+char inverteFrase(char *);\
+\
+main()\{\
+	setlocale(LC_ALL, "Portuguese");\
+	\
+	char frase[] = "par\'e2metro por refer\'eancia";\
+	\
+	printf("Frase: %s.\\n", frase);\
+	inverteFrase(frase);\
+	printf("Ap\'f3s a invers\'e3o: %s", frase);\
+\}\
+\
+char inverteFrase(char *frase)\{\
+	int tamanho = 0;\
+	tamanho = strlen(frase);\
+	\
+	int c, i, j;\
+\
+    for (i = 0, j = tamanho - 1; i < j; i++, j--)\
+    \{\
+        c = frase[i];\
+        frase[i] = frase[j];\
+        frase[j] = c;\
+    \}\
+    return frase;\
+\}\
+\
+}
