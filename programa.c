@@ -1,32 +1,70 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <exclui_nodo.h>
-/***********************************************/
-/* DefiniÃ§Ã£o dos Registros                     */
-/***********************************************/
+#include <string.h>
+//#include "exclui_nodo.h"
+/***********************************************/ 
+/* Definição dos Registros                     */
+/***********************************************/ 
 #define N_MAX 20
-typedef struct { //registro para uma pessoa
-	int codigo;
+typedef struct {			// registro para uma pessoa       
+	int codigo;       
 	char nome[30];
-}INFORMACAO;
-typedef struct {//dados do registro
-	INFORMACAO info[N_MAX];
-	int f;//nÃºmero de registro(s) ocupado(s) na estrutura
-}NODO;//estrutura do tipo NODO
+}INFORMACAO;       
+typedef struct {       
+	INFORMACAO info[N_MAX];	// dados do registro       
+	int f;					// número de registro(s) ocupado(s) na estrutura
+}NODO;						// estrutura do tipo NODO
 
+void exclui_nodo (void);
+ 
 /***********************************************/
 /* Programa Principal                          */
 /***********************************************/
 int main(void){
-	NODO lista;//variÃ¡vel do tipo lista sequencial = vetor de registros
+	NODO *lista;			// variável do tipo lista sequencial = vetor de registros
+	
+	*//lista.info[0].codigo = 1;
+	//lista.info[0].nome = "Joao";
+	//lista.info[1].codigo = 2;
+	//lista.info[1].nome  = "Jose";
+	//lista.info[2].codigo= 3;
+	//lista.info[2].nome = "Mario";
+	
+	exclui_nodo(*lista);
 }
 
-/*
-https://www.google.com.br/search?safe=active&rlz=1C1GCEA_enBR781BR781&ei=t29sW42wA4b6wQTN4bjgAw&q=fun%C3%A7%C3%A3o+excluir+em+linguagem+c&oq=fun%C3%A7%C3%A3o+excluir+em+linguagem+c&gs_l=psy-ab.3..0i22i30k1.452113.460652.0.460861.19.15.0.0.0.0.522.1789.4-3j1.4.0....0...1c.1.64.psy-ab..15.4.1788...0j0i67k1j0i131i67k1j0i131k1.0.VIJAG_Da6S0
+void exclui_nodo (NODO *lista){	
+	int codExclusao;
 
-https://www.hardware.com.br/comunidade/cadastro-programa/1100702/
-
-https://www.scriptbrasil.com.br/forum/topic/149429-excluir-registro-em-arquivo-c/
-
-https://pt.stackoverflow.com/questions/138360/criar-fun%C3%A7%C3%A3o-de-excluir-em-projeto-em-c
-*/
+	if(lista.f < 1){
+		printf("A lista esta vazia, nao existem pacientes cadastrados.\n");
+	}
+	else{
+		printf("Codigo - Paciente\n");
+		for(int i = 0; i <= lista.info[N_MAX]; i++){
+			printf("%d - %s\n", lista.info[i].codigo, lista.info[i].nome);
+		}
+		
+		printf("Digite o codigo do paciente para a exclusao: ");
+		scanf("%d", &codExclusao);
+		
+		if(codExclusao == ""){
+			printf("Opcao invalida!!!\n");
+			printf("Digite o codigo do paciente para a exclusao: ");
+			scanf("%d", &codExclusao);
+		}
+		else{
+			for(int j = 0; j <= lista.info[N_MAX]; j++){
+				if(codExclusao == lista.info[j].codigo){
+					lista.info[j].codigo = "";
+					lista.info[j].nome = "";
+				
+					for (int m = j; m <= N_MAX; m++){
+						lista.info[m].codigo = lista.info[m].codigo[m + 1];
+						lista.info[m].nome = lista.info[m].nome[m + 1];
+					}
+				}
+			}
+		}
+	}
+}
