@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+typedef struct lista{
+ int info;
+ struct lista* prox;
+}NODO;
+
+void cria_lista(NODO* *l);
+void entrada_dados(NODO *auxiliar);
+
+int main(void){
+    NODO *listaZerada;
+    NODO *aux;
+	
+	int op;
+	
+	printf("\n Menu");
+	printf("\n [1 ] Cria Lista");
+	printf("\n [2 ] Entrada de Dados");
+	printf("\n =====");
+	printf("\n Opcao: ");
+	scanf("%i", &op);
+	
+	switch(op){
+		case 1:
+			cria_lista(&listaZerada);
+			break;
+		case 2:
+		    entrada_dados(&aux);
+		    break;
+	}
+	return 0;
+}
+
+void cria_lista(NODO* *l){
+	(*l)->prox = NULL;
+}
+
+void entrada_dados(NODO *auxiliar){
+    int num;
+    
+    printf("Digite um numero inteiro: ");
+    scanf("%i", &num);
+    
+}
+
+https://www.vivaolinux.com.br/script/Lista-Simplesmente-Encadeada
