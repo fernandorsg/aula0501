@@ -1,0 +1,292 @@
+usuário: e26850@pxcdbd
+senha: oracle
+Comandos SQL
+SHOW - lista valores definidos das variáveis de ambiente do SQL.
+	ex. 	SHOW ALL - lista todas varáveis e seus valores
+		SHOW linesize - lista o valor de tamanho de linha
+		SHOW USER - lista o usuário conectado
+
+SET - altera valores definidos das variáveis de ambiente do SQL.
+	ex. 	SET linesize 120
+		SET pagesize 100
+
+DESC - lista as definições das colunas de uma tabela.
+	ex.	DESC <tabela>
+
+SELECT - retornar dados de uma tabela
+	ex. 	SELECT * FROM <tabela> - seleciona todos as colunas de uma tabela(não utilizar);
+		SELECT <campo(s)> FROM <tabela> - seleciona o(s) campo(s) desejado(s) na tabela descrita;
+		SELECT <campo(s)> AS <nome cabeçalho> - seleciona o(s) campo(s) desejado(s) renomeando o(s) cabeçalho(s) que serão apresentados por campo;
+		SELECT DISTINCT <campo(s)> FROM <tabela> - distingue linhas duplicadas;
+		SELECT <campo(s)> FROM <tabela> ORDER BY <campo> - seleciona o campo desejado de uma tabela, determinando a ordem na qual os dados serão exibidos, default é ascendente;
+		SELECT <campo1, campo2, campo3> FROM <tabela> ORDER BY <campo?> - onde <campo?> pode ser representado por um número da posição do campo;
+		
+WHERE - usado para especificar o critério utilizado para filtrar as linhas da tabela.
+	ex.	SELECT <campo(s)> FROM <tabela> WHERE <filtro> - seleciona o(s) campo(s) desejado(s) da tabela filtrando por um campo específico;
+
+	OPERADORES PARA COMPARAÇÃO:
+	operador	significado
+	   =		IGUAL
+	   <>		DIFERENTE
+	   >		MAIOR QUE
+	   <		MENOR QUE
+	   >=		MAIOR OU IGUAL
+	   <=		MENOR OU IGUAL
+
+	OPERADORES LÓGICOS
+	operador		significado
+	 is null/is not null	verifica se o valor é(ou não é) nulo
+	 between/not between	verifica se o valor está em um intervalo(ou não está num intervalo)
+	 in			verifica se o valor está em uma lista
+	 like			compara o valor com uma combinação de caracteres
+	 or			verifica se o valor satisfaz a uma das condições
+	 and			verifica se o valor satisfaz ambas as condições
+		
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> IS NULL - seleciona o(s) campo(s) desejado(s) da tabela filtrando onde o campo é nulo;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> IS NOT NULL - seleciona o(s) campo(s) desejado(s) da tabela filtrando onde o campo não é nulo;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> BETWEEN <valorMenor> AND <valorMaior> - seleciona o(s) campo(s) desejado(s) da tabela filtrando pela faixa de valor indicado;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> NOT BETWEEN <valorMenor> AND <valorMaior> - seleciona o(s) campo(s) desejado(s) da tabela filtrando pela faixa que está fora do valor indicado;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> IN (valor1, valor2, etc) - seleciona o(s) campo(s) desejado(s) da tabela filtrando pela lista de possibilidades descrita dentro dos parenteses;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> LIKE <filtro> - seleciona o(s) campo(s) desejado(s) da tabela filtrando pela combinação de caracteres descrita entre apostrofos. ex. 'fer%'('%fer', '%fer%', etc...);
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> AND <condição> - seleciona o(s) campo(s) desejado(s) da tabela utilizando filtro E uma condição;
+		SELECT <campo(s)> FROM <tabela> WHERE <filtro> OR <condição> - seleciona o(s) campo(s) desejado(s) da tabela utilizando filtro OU uma condição;
+
+	CHARACTER FUNCTIONS
+	functions	objetivo
+	LOWER()		converte para minúsculo ex. LOWER ('Teste de Funções') -> teste de funções
+	UPPER()		converte para maiúsculo ex. UPPER ('Teste de Funções') -> TESTE DE FUNÇÕES
+	CONCAT		concatena a coluna1 com literal1 e com coluna2 ex. CONCAT ('Teste de',' Funções') -> Teste de Funções
+	SUBSTR		Retorna uma parte de uma string. Onde coluna1 é a string, m é a posição inicial e n é o tamanho. Se m for negativo, a posição inicial começa do final. ex. ('Teste de Funções', 10, 7) -> Funções
+	LENGTH()	retorna o número de caracteres ex. LENGTH('Teste de funções') -> 16
+	INSTR		Pesquisa 'x' na string coluna1 e retorna a enésima ocorrência a partir da posição (m) ex. ('Teste','s') -> 3
+	LPAD		coloca o setado no último campo à esquerda da coluna até atingir o tamanho total setado no segundo parâmetro ex. ('TESTE',10,'*') -> *****TESTE
+	RPAD		coloca a string à direita da coluna atá atingir o tamanho total n ex. ('TESTE',10,'*') -> TESTE*****
+	LTRIM(<coluna>)	tira espaços da esquerda da string em coluna ex. LTRIM('   Teste') -> Teste
+	TRIM(<coluna>)	tira espaços da direita e da esquerda da string da coluna ex. TRIM(' Teste ') -> Teste
+
+	NUMBER FUNCTIONS
+	functions	objetivo
+	ROUND		arredonda o valor na coluna para n casas decimais(se n não for informado, arredonda para inteiro) ex. ROUND (5.678,2) -> 5.68
+	TRUNC		trunca a coluna para n casas decimais, se n é omitido, trunca para um número inteiro ex. TRUNC (5.678,2) -> 5.67
+	MOD		retorna o resto da divisão de m por n ex. MOD (1250,500) -> 250
+	POWER		eleva m à potencia n ex. POWER (2,3) -> 8
+	SIGN		retorna -1 se m é negativo e 1 se m é positivo, se m é 0, retorna 0 ex. SIGN (-100) -> -1
+
+	DATE FUNCTIONS
+	data + n	adiciona n dias à data; ex. DATA + 1
+	data - n	subtrai n dias da data; ex. DATA - 1
+	data1 - data2	retorna o intervalo de dias entre as duas datas(sendo 1 para um dia); ex. data1 - data2
+	data + n/24	adiciona n horas à data; ex. DATA + 3/24
+	add_months	adiciona n meses à data; ex. ADD_MONTHS(data,n)
+	next_day	retorna o próximo dia, a partir da data, corresponde ao dia da semana contido em char; ex. NEXT(SYSDATE, 'MON') -> <próxima> segunda-feira
+	last_day	retorna o último dia do mês com base na data;
+ex. LAST_DAY(data) -> <último dia do mês>
+	round		arredonda uma data('dd','mm','yyyy','hh','mi');
+	trunc		trunca uma data('dd','mm','yyyy','hh','mi');
+	
+	FUNÇÕES DE CONVERSÃO
+	to_char		converte um número ou data para um caracter, para as datas, converte de acordo com o formato definido em fmt;
+	to_number	converte um caracter para número;
+	to_date		converte caracter para data;
+	to_timestamp	converte caracter para timestamp;
+
+	FORMATOS DE DATAS
+	formato		significado
+	yyyy		ano
+	year		ano por extenso
+	mm		mês
+	month		mês por extenso
+	dd		dia do mês
+	dy		dia da semana abreviado
+	day		dia da semana
+	hh/hh24		hora
+
+	FORMATOS NUMÉRICOS
+	exemplo		resultado
+	999999		1234 	-> apenas números
+	099999		001234	-> completa com zeros a esquerda
+	9999.00		1234.00	-> acrescenta duas casas decimais após o ponto
+	999,999		1,234	-> acrescenta 3 casas decimais após a virgula
+
+	OBJETOS DE SISTEMA
+	system tables		dual
+	system variables	sysdate -> data e hora até segundo
+				systimestamp -> data e hora até fração de segundo
+ex.
+SELECT TO_CHAR(SYSDATE,'dd/mm/yyyy hh24:mi:ss') DATA FROM DUAL; -> 09/10/2013 16:35:55
+SELECT TO_CHAR(SYSTIMESTAMP,'dd/mm/yyyy hh24:mi:ss:ff6') DATA FROM DUAL; -> 09/10/2013 16:36:19:036282
+SELECT TO_CHAR(TO_DATE('20130905','yyyymmdd'),'dd-mm-yyyy') FROM DUAL; -> 05-sep-2013
+
+solução exercício 1 - slide 48
+SELECT TO_CHAR(TO_DATE('20110123 13:24:14', 'yyyymmdd hh24:mi:ss'), 'dd/mm/yyyy hh24:mi:ss') FROM DUAL; -> 23/01/2011 13:24:14
+
+COALESCE - retorna a primeira expressão não nula em uma sequência de expressões
+
+CASE - similar ao IF...THEN...ELSE
+ex. SELECT nome
+	CASE WHEN salario < 2000 THEN 'Baixo'
+	     WHEN salario > 5000 THEN 'Alto'
+	     ELSE 'Médio' END salario
+	FROM EMPREGADO;
+
+	AGGREGATE FUNCTIONS
+	função		significado
+	avg		retorna a média de todos os valores de uma determinada coluna
+	count		retorna o total de linhas que satisfazem uma condição
+	max		retorna o maior valor de uma determinada coluna
+	min		retorna o menor valor de uma determinada coluna
+	sum		retorna a soma de uma determinada coluna
+
+GROUP BY - para sumarizar informações grupadas por linhas com uma característica comum
+ex. SELECT COD_DEP, SUM(SALARIO) AS "SALARIO TOTAL" 
+	FROM EMPREGADO 
+	GROUP BY COD_DEP;
+
+ORDER BY - retorna em ordem ascesdente por padrão
+ex. SELECT COD_DEP, MIN(SALARIO) MINIMO, MAX(SALARIO) MAXIMO 
+	FROM EMPREGADO 
+	GROUP BY COD_DEP 
+	ORDER BY COD_DEP;
+
+HAVING - permite adiconar uma condição para cada grupo retornado
+ex. SELECT COD_DEP, COUNT(*) AS TOTAL 
+	FROM EMPREGADO 
+	GROUP BY COD_DEP 
+	HAVING COUNT(*) > 20;
+
+INNER JOIN - reúne tabelas diferentes usando um campo igual como critério
+ex. SELECT EMPREGADO.NOME, DEPARTAMENTO.NOME_DEP 
+	FROM EMPREGADO 
+	JOIN DEPARTAMENTO 
+	ON EMPREGADO.COD_DEP = DEPARTAMENTO.COD_DEP;
+
+OUTERJOIN - além de mostrar registros cujas colunas em comum estejam presentes nas duas tabelas, um OUTERJOIN mostra as linhas de uma tabela sem correspondente na outra tabela do join
+	(A LEFT JOIN B) - para um outerjoin das tabelas A e B que retorne todas as linhas de A
+ex. SELECT PAIS.NOME_PAIS, LOCAL.CIDADE
+	FROM PAIS
+	LEFT JOIN LOCAL
+	ON PAIS.COD_PAIS = LOCAL.COD_PAIS
+	WHERE PAIS.COD_PAIS LIKE 'A%';
+
+	(A RIGHT JOIN B) - para um outerjoin das tabelas A e B que retorne todas as linhas de B
+ex. SELECT PAIS.NOME_PAIS, LOCAL.CIDADE
+	FROM LOCAL
+	RIGHT JOIN PAIS
+	ON PAIS.COD_PAIS = LOCAL.COD_PAIS
+	WHERE PAIS.COD_PAIS LIKE 'A%';
+
+	(A FULL JOIN B) - para um outerjoin das tabelas A e B que retorne todas as linhas de A e B
+
+SELF JOIN - join com a mesma tabela
+ex. SELECT EMP.NOME, GER.NOME
+	FROM EMPREGADO EMP
+	JOIN EMPREGADO GER
+	ON EMP.COD_GERENTE = GER.COD_EMP;
+
+ALIAS - utilizado para qualificar o nome de uma tabela
+ex. SELECT EMP.NOME, DEP.NOME_DEP
+	FROM EMPREGADO EMP
+	JOIN DEPARTAMENTO DEP
+	ON EMP.COD_DEP = DEP.COD_DEP
+	WHERE DEP.COD_DEP = 60;
+
+Produto Cartesiano
+ex. SELECT EMP.COD_EMP, EMP.NOME,
+	DEP.COD_DEP, DEP.NOME_DEP
+	FROM EMPREGADO EMP, DEPARTAMENTO DEP;
+
+UNION - utilizado para o unir o resultado de duas ou mais consultas
+ex. SELECT COD_EMP, NOME 
+	FROM EMPREGADO
+	WHERE COD_EMP = 100
+	UNION
+	SELECT COD_EMP, NOME 
+		FROM EMPREGADO
+		WHERE COD_EMP = 118;
+
+DELIMITAR o NÚMERO DE LINHAS RETORNADAS - para limitar o número de linhas retornadas
+ex. SELECT COD_EMP, NOME 
+	FROM EMPREGADO
+	WHERE ROWNUM < 6;
+
+INSERT - para adicionar dados em uma tabela
+ex. INSERT INTO DEPARTAMENTO(COD_DEP,NOME_DEP) 
+	VALUES(5300,'FINANCEIRO');
+
+UPDATE - para alterar valores de uma ou mais colunas de uma tabela
+ex. UPDATE EMPREGADO
+	SET SALARIO = SALARIO * 1.30
+	WHERE SALARIO < 3000;
+
+DELETE - para remover uma ou mais linhas de uma tabela
+ex. DELETE EMPREGADO
+	WHERE SALARIO < 3000;
+	
+	RESTRICT - não permite excluir uma linha que esteja referenciada por uma chave estrangeira
+	CASCADE - o banco exclui automaticamente as linhas cuja chave estrangeira faça referenciada à linha excluída
+	SET NULL - o banco atribui nulo para a chave estrangeira que faça referencia a uma linha excluida
+
+TRANSAÇÃO
+	Commit - torna permanente as mudanças resultantes dos SQLs de uma transação;
+	Rollback - desfaz as mudanças resultantes dos SQLs de uma transação;
+	Savepoint - identifica um ponto na transação para desfazer parte da transação;
+
+
+Exercícios - Slide 13 - Arquivo SQL.pdf
+1 - SELECT * FROM REGIAO;
+2 - SELECT NOME_PAIS FROM PAIS;
+3 - SELECT CIDADE FROM LOCAL;
+4 - SELECT NOME, PCT_COMISSAO AS "Comissao" FROM EMPREGADO;
+
+Para trazer linhas não duplicados:
+	SELECT DISTINCT COD_DEP FROM EMPREGADO;
+Ordenando dados:
+	SELECT DISTINCT COD_DEP FROM EMPREGADO ORDER BY COD_DEP DESC;
+						                ASC;
+
+Exercícios - Slide 27 - Arquivo SQL.pdf
+1 - select distinct nome_servico, (salario_max-salario_min) as "Dif" from servico order by "Dif" desc;
+2 - select distinct cod_local from departamento;
+3 - select distinct cod_gerente from empregado order by cod_gerente desc;
+4 - select nome, sobrenome, cod_dep from empregado order by cod_dep desc and (nome, sobrenome asc);
+
+
+Exercício - slide 34
+1 - select cod_emp, data_inicio from historia_empregado where cod_servico in ('IT_PROG', 'SA_MAN');
+2 - select nome_servico from servico where (salario_min < 4500 or salario_max > 12000);
+3 - select cod_local from local where cep is not null;
+4 - select cidade from local where cidade between 'S%' and 'Z%';
+
+Exercício - slide 38
+1 - select concat('Eu gosto ', concat('de trabalhar ', 'com SQL.')) from dual;
+	ou, select 'Eu gosto '||'de trabalhar '||'com SQL.' from dual;
+2 - select instr('inconstitucionalissimamente','n') from dual;
+	e select instr('inconstitucionalissimamente','n',7) from dual;
+	e select instr('inconstitucionalissimamente','n',15) from dual;
+3 - select rpad('Sol',12,'tr') from dual;// termina em t
+	e select rpad('Sol',11,'tr') from dual;// termina em r
+4 - select length(ltrim('   Teste   ')) from dual;
+
+Exercício - slide 48
+1 - select to_char (sysdate, 'dd/mm/yyyy hh24:mm:ss') from dual;
+
+Exercício - slide 53
+1 - select nome||' '||sobrenome as "Nome Completo" from empregado where cod_dep = 100;
+2 - select round(salario/22,2) as "Sal Arred", round(salario/22) as "Sal Int" from empregado where cod_dep = 30 order by nome asc;
+	ou, select nome, round(salario/22,2) as "Sal Arred", round(salario/22) as "Sal Int" from empregado where cod_dep = 30 order by nome asc;
+3 - select cod_emp, cod_servico, round(sysdate - data_contartacao) as "Dias" from empregado where cod_dep in (110, 50);
+
+Exercício - slide 60
+1 - select count(cod_emp), cod_dep from empregado group by cod_dep;
+2 - select sum(salario) as "Total" from empregado group by cod_servico having sum(salario) > 15000 order by sum(salario) desc;
+
+Join
+select nome, nome_dep from empregado join departamento on empregado.cod_dep=departamento.cod_dep;
+
+Exercício - slide 71
+1 - select nome_pais from pais where cod_regiao = 1;
+2 - select emp.nome, dep.nome_dep from empregado emp join departamento dep on emp.cod_dep = dep.cod_dep join local loc on loc.cod_local = dep.cod_local and loc.cidade = 'Oxford'; 
+3 - select emp.nome, ger.nome from empregado emp join empregado ger on emp.cod_gerente = ger.cod_emp where emp.salario > 8000; 
+4 -
+5 -
+6 -
